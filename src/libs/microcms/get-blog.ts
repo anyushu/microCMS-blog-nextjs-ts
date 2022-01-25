@@ -3,7 +3,7 @@ import { microcmsClient } from 'libs/microcms/api-client'
 import type { GetsType, blog } from 'types/cms-types'
 
 /**
- * ブログの取得
+ * ブログ一覧の取得
  *
  * @param {number} limit 取得投稿数
  * @param {number} offset ページ番号
@@ -21,6 +21,20 @@ export const getBlogList = (
     q: keyword,
     orders: '-publishedAt',
   }
+
+  return microcmsClient.get<GetsType<blog>>({
+    endpoint: 'blog',
+    queries: queries,
+  })
+}
+
+/**
+ * ブログ取得
+ *
+ * @returns blog
+ */
+export const getBlog = () => {
+  const queries: MicroCMSQueries = {}
 
   return microcmsClient.get<GetsType<blog>>({
     endpoint: 'blog',

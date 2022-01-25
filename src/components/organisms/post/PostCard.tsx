@@ -7,7 +7,7 @@ import { formatDate } from 'utils/format-date'
 
 const PostCard: FC<{ blog: blog }> = ({ blog }) => {
   return (
-    <Link href="/posts/[slug]" as={getPostLink(blog.id)} passHref>
+    <Link href="/blog/[slug]" as={getPostLink(blog.slug)} passHref>
       <a className="hover:opacity-75 transition-all">
         {/* thumbnail */}
         <figure className="relative pt-[46.29%] h-0 bg-gray-100">

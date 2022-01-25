@@ -5,5 +5,5 @@
  * @returns {string} slug
  */
 export const getPostLink = (slug: string): string => {
-  return `/posts/${slug}`
+  return `/blog/${slug}`
 }
