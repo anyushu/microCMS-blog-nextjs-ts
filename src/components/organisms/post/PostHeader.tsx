@@ -15,10 +15,10 @@ const PostHeader: FC<{ blog: blog }> = ({ blog }) => {
       </div>
       <div className="flex items-center">
         {/* tag */}
-        {blog.category.length > 0 && <p className="text-gray-500">{blog.category[0]}</p>}
+        {blog.category.length > 0 && <p className="text-gray-500 uppercase">{blog.category[0]}</p>}
         {/* date */}
-        <time className="ml-6 text-gray-500" dateTime={formatDate(blog.createdAt)}>
-          {formatDate(blog.createdAt)}
+        <time className="ml-6 text-gray-500" dateTime={formatDate(blog.publishedAt)}>
+          {formatDate(blog.publishedAt)}
         </time>
       </div>
     </>

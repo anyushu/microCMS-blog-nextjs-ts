@@ -20,9 +20,9 @@ const PostCard: FC<{ blog: blog }> = ({ blog }) => {
         </figure>
         <div className="flex justify-between items-center my-6 text-xs tracking-widest text-gray-500">
           {/* tag */}
-          <div>{blog.category[0] && <span>{blog.category[0]}</span>}</div>
+          <div>{blog.category.length > 0 && <span>{blog.category[0]}</span>}</div>
           {/* created_time */}
-          <time dateTime={formatDate(blog.createdAt)}>{formatDate(blog.createdAt)}</time>
+          <time dateTime={formatDate(blog.publishedAt)}>{formatDate(blog.publishedAt)}</time>
         </div>
         {/* title */}
         <h2 className="text-lg tracking-wider">{blog.title}</h2>

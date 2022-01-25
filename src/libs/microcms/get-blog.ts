@@ -1,6 +1,22 @@
-import type { MicroCMSQueries } from 'microcms-js-sdk'
+import type { MicroCMSListResponse, MicroCMSQueries } from 'microcms-js-sdk'
 import { microcmsClient } from 'libs/microcms/api-client'
-import type { GetsType, blog } from 'types/cms-types'
+import type { blog } from 'types/cms-types'
+
+export const END_POINT = 'blog'
+
+/**
+ * slug取得
+ *
+ * @returns blog
+ */
+export const getAllSlugs = () => {
+  return microcmsClient.getList<blog>({
+    endpoint: END_POINT,
+    queries: {
+      limit: 99999,
+    },
+  })
+}
 
 /**
  * ブログ一覧の取得
@@ -10,11 +26,7 @@ import type { GetsType, blog } from 'types/cms-types'
  * @param {string} keyword 全文検索キーワード
  * @returns blog
  */
-export const getBlogList = (
-  limit?: number,
-  offset?: number,
-  keyword?: string,
-): Promise<GetsType<blog>> => {
+export const getBlogList = (limit?: number, offset?: number, keyword?: string) => {
   const queries: MicroCMSQueries = {
     limit: limit,
     offset: offset,
@@ -22,22 +34,20 @@ export const getBlogList = (
     orders: '-publishedAt',
   }
 
-  return microcmsClient.get<GetsType<blog>>({
-    endpoint: 'blog',
+  return microcmsClient.getList<blog>({
+    endpoint: END_POINT,
     queries: queries,
   })
 }
 
 /**
- * ブログ取得
+ * ブログ詳細の取得
  *
- * @returns blog
+ * @param {string} contentId id
  */
-export const getBlog = () => {
-  const queries: MicroCMSQueries = {}
-
-  return microcmsClient.get<GetsType<blog>>({
-    endpoint: 'blog',
-    queries: queries,
+export const getBlog = (contentId: string) => {
+  return microcmsClient.get<MicroCMSListResponse<blog>>({
+    endpoint: END_POINT,
+    contentId: contentId,
   })
 }
