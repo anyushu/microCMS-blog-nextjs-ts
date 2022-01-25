@@ -12,7 +12,7 @@ type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
   return (
     <>
-      <NextSeo title={blog.title} />
+      <NextSeo title={blog.title} description={blog.metaDescription} noindex={blog.metaRobots} />
 
       <Layout>
         <Container>
