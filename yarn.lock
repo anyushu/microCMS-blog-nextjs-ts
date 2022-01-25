@@ -1858,6 +1858,11 @@ microcms-js-sdk@^2.0.0:
     node-fetch "^2.6.1"
     qs "^6.10.1"
 
+microcms-typescript@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/microcms-typescript/-/microcms-typescript-1.0.10.tgz#d3df2afd2833c10a92c9561aea58d35b3edb8635"
+  integrity sha512-1XA/cjL6uzIF7NGTvZI4K6uAxZ1UO8BGl72U/6kto59vdE64SjW7ruZCzMW7x/Ze8VxWDYORxms9qvSWpao5iw==
+
 micromatch@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.4.tgz#896d519dfe9db25fce94ceb7a500919bf881ebf9"

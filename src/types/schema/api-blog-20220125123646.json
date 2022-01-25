@@ -1,0 +1,24 @@
+{
+  "apiFields": [
+    {
+      "idValue": "L8cJifIK-W",
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    },
+    { "fieldId": "slug", "name": "スラッグ", "kind": "text", "required": true, "isUnique": false },
+    { "fieldId": "thumbnail", "name": "アイキャッチ", "kind": "text", "isUnique": false },
+    {
+      "fieldId": "category",
+      "name": "カテゴリー",
+      "kind": "select",
+      "required": true,
+      "selectItems": [{ "id": "sRJn-oiGVO", "value": "others" }],
+      "multipleSelect": false
+    },
+    { "fieldId": "content", "name": "投稿内容", "kind": "richEditor", "required": true }
+  ],
+  "customFields": []
+}

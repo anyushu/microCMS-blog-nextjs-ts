@@ -10,7 +10,8 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
     "test-all": "npx yarn-run-all lint type-check format lint:fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "microcms-type": "microcms-typescript src/types/schema src/types/cms-types.ts"
   },
   "dependencies": {
     "microcms-js-sdk": "^2.0.0",
@@ -32,6 +33,7 @@
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.1",
+    "microcms-typescript": "^1.0.10",
     "next-sitemap": "^2.0.2",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",
