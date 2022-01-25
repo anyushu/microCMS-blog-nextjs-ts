@@ -17,10 +17,14 @@ const Footer = () => {
               <a className="hover:text-gray-700">Home</a>
             </Link>
             <Link href={process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/'}>
-              <a className="ml-3 hover:text-gray-700">GitHub</a>
+              <a className="ml-3 hover:text-gray-700" rel="noopener noreferrer" target="_blank">
+                GitHub
+              </a>
             </Link>
             <Link href={process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com/'}>
-              <a className="ml-3 hover:text-gray-700">Twitter</a>
+              <a className="ml-3 hover:text-gray-700" rel="noopener noreferrer" target="_blank">
+                Twitter
+              </a>
             </Link>
           </nav>
           <p className="text-xs">© 2021 {siteTitle}.</p>

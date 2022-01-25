@@ -5,7 +5,6 @@ import ToggleColorMode from 'components/organisms/ToggleColorMode'
 import { siteTitle } from 'next-seo.config'
 
 const headMenus = [
-  { name: 'Home', href: '/' },
   { name: 'GitHub', href: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/' },
   { name: 'Twitter', href: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com/' },
 ]
@@ -31,10 +30,19 @@ const Header = () => {
                 </Popover.Button>
               </div>
               <div className="hidden items-center md:flex">
+                <Link href="/">
+                  <a className="ml-6 text-sm leading-4 hover:text-gray-700 focus-visible:outline-none md:text-base">
+                    Home
+                  </a>
+                </Link>
                 {headMenus.map((val, key) => {
                   return (
                     <Link href={val.href} key={key}>
-                      <a className="ml-6 text-sm leading-4 hover:text-gray-700 focus-visible:outline-none md:text-base">
+                      <a
+                        className="ml-6 text-sm leading-4 hover:text-gray-700 focus-visible:outline-none md:text-base"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
                         {val.name}
                       </a>
                     </Link>
@@ -58,11 +66,20 @@ const Header = () => {
                 focus
                 className="absolute inset-x-0 top-0 z-10 p-2 transition origin-top-right md:hidden"
               >
-                <div className="flex overflow-hidden justify-center items-center py-6 px-3 bg-white dark:bg-black-800 rounded-lg ring-1 ring-black-900 shadow-md">
+                <div className="flex overflow-hidden justify-center items-center py-6 px-3 bg-white dark:bg-black-800 rounded-lg shadow-md">
+                  <Link href="/">
+                    <a className="px-3 leading-4 text-center hover:text-gray-700 focus-visible:outline-none">
+                      Home
+                    </a>
+                  </Link>
                   {headMenus.map((val, key) => {
                     return (
                       <Link href={val.href} key={key}>
-                        <a className="px-3 leading-4 text-center hover:text-gray-700 focus-visible:outline-none">
+                        <a
+                          className="px-3 leading-4 text-center hover:text-gray-700 focus-visible:outline-none"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
                           {val.name}
                         </a>
                       </Link>

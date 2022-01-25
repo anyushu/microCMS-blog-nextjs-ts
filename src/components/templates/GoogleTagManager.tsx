@@ -1,12 +1,11 @@
-import { NextPage } from 'next'
 import Script from 'next/script'
-import React from 'react'
+import React, { FC } from 'react'
 
 type Props = {
   googleTagManagerId: string
 }
 
-const GoogleTagManager: NextPage<Props> = ({ googleTagManagerId }) => {
+const GoogleTagManager: FC<Props> = ({ googleTagManagerId }) => {
   return (
     <Script
       id="gtm"

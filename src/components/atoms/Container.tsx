@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
   className?: string
 }
 
-const Container = ({ children, className }: Props) => {
+const Container: FC<Props> = ({ children, className }) => {
   return <div className={`container px-3 md:px-0 mx-auto ${className}`}>{children}</div>
 }
 
