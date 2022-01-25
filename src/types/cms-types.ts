@@ -41,6 +41,14 @@ export type blog<T = 'get'> = Structure<
      * 投稿内容
      */
     content: string
+    /**
+     * noindex
+     */
+    metaRobots: boolean
+    /**
+     * ディスクリプション
+     */
+    metaDescription?: string
   }
 >
 
