@@ -1,7 +1,7 @@
 /**
  * site title
  */
-export const siteTitle = 'Anyushu'
+export const siteTitle = process.env.NEXT_PUBLIC_SITE_NAME || 'Anyushu'
 
 /**
  * next-seo defaultS config

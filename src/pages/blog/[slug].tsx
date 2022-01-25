@@ -20,7 +20,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
             <PostHeader blog={blog} />
             <div
               id="news-content"
-              className="w-full max-w-none prose mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
+              className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </article>
