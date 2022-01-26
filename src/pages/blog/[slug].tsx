@@ -21,8 +21,13 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
             <div
               id="news-content"
               className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
-            />
+            >
+              <div
+                id="news-content"
+                className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+              />
+            </div>
           </article>
           <div className="mt-12 tracking-widest text-center">
             <Button href="/">Back Home</Button>
@@ -39,17 +44,14 @@ export const getStaticPaths = async () => {
   const allPage = await getAllSlugs()
   const paths = allPage.contents.map((blog) => ({
     params: {
-      id: blog.id,
       slug: blog.slug,
     },
   }))
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({
-  params,
-}: GetStaticPropsContext<{ id: string; slug: string }>) => {
-  const data = await getBlog(params?.id || '')
+export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
+  const data = await getBlog(params?.slug || '')
 
   return {
     props: {
