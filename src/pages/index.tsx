@@ -1,5 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
+import Link from 'next/link'
 import React from 'react'
 import Container from 'components/atoms/Container'
 import Heading from 'components/atoms/Heading'
@@ -14,7 +15,10 @@ const Home: NextPage<IndexProps> = ({ blog }) => {
   return (
     <>
       <>
-        <NextSeo description="フロントエンドエンジニア。サッカーと映画が好きです。" />
+        <NextSeo
+          description="フロントエンドエンジニアのブログ。サッカーと映画が好きです。"
+          canonical={process.env.NEXT_PUBLIC_SITE_URL}
+        />
 
         <Layout>
           <Hero />
@@ -23,6 +27,11 @@ const Home: NextPage<IndexProps> = ({ blog }) => {
               Latest posts
             </Heading>
             <Posts blogs={blog.contents} />
+            <div className="mt-12 text-center">
+              <Link href="/page/[offset]" as="/page/1">
+                <a>Show More</a>
+              </Link>
+            </div>
           </Container>
         </Layout>
       </>
@@ -33,7 +42,7 @@ const Home: NextPage<IndexProps> = ({ blog }) => {
 export default Home
 
 export const getStaticProps = async () => {
-  const data = await getBlogList()
+  const data = await getBlogList(12)
 
   return {
     props: {
