@@ -7,6 +7,7 @@ import PostHeader from 'components/organisms/post/PostHeader'
 import Layout from 'components/templates/Layout'
 import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
 import { HTMLToReact } from 'utils/html-to-react-parser'
+import createOgp from 'utils/server/ogp'
 
 type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -17,7 +18,26 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
 
   return (
     <>
-      <NextSeo title={blog.title} description={blog.metaDescription} noindex={blog.metaRobots} />
+      <NextSeo
+        title={blog.title}
+        description={blog.metaDescription}
+        noindex={blog.metaRobots}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
+          title: blog.title,
+          description: blog.metaDescription,
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}/ogp/${blog.id}.png`,
+              width: 1200,
+              height: 630,
+              alt: blog.title,
+              type: 'image/png',
+            },
+          ],
+          site_name: process.env.NEXT_PUBLIC_SITE_NAME,
+        }}
+      />
 
       <Layout>
         <Container>
@@ -53,7 +73,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   const data = await getBlog(params?.slug || '')
-
+  void createOgp(data.contents[0].title, data.contents[0].id)
   return {
     props: {
       blog: data.contents[0],
