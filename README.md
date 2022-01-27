@@ -1,4 +1,4 @@
-# NextJS Boilerplate
+# microCMS x NextJSJamstack Blog
 
 ## Getting Started
 
