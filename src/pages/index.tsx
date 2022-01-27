@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import Link from 'next/link'
 import React from 'react'
+import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import Heading from 'components/atoms/Heading'
 import Posts from 'components/molecules/Posts'
@@ -27,11 +27,12 @@ const Home: NextPage<IndexProps> = ({ blog }) => {
               Latest posts
             </Heading>
             <Posts blogs={blog.contents} />
-            <div className="mt-12 text-center">
-              <Link href="/page/[offset]" as="/page/1">
-                <a>Show More</a>
-              </Link>
-            </div>
+
+            {blog.contents.length > 12 && (
+              <div className="mt-12 text-center">
+                <Button href="/page/1">Show More</Button>
+              </div>
+            )}
           </Container>
         </Layout>
       </>

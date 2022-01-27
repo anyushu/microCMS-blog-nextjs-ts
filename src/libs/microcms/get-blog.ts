@@ -43,11 +43,13 @@ export const getBlogList = (limit?: number, offset?: number, keyword?: string) =
 /**
  * ブログ詳細の取得
  *
- * @param {string} contentId id
+ * @param {string} slug id
  */
-export const getBlog = (contentId: string) => {
+export const getBlog = (slug: string) => {
   return microcmsClient.get<MicroCMSListResponse<blog>>({
     endpoint: END_POINT,
-    contentId: contentId,
+    queries: {
+      filters: `slug[equals]${slug}`,
+    },
   })
 }

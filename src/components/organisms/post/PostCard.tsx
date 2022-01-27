@@ -2,12 +2,11 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { Twemoji } from 'react-emoji-render'
 import { blog } from 'types/cms-types'
-import { getPostLink } from 'utils/blog-helpers'
 import { formatDate } from 'utils/format-date'
 
 const PostCard: FC<{ blog: blog }> = ({ blog }) => {
   return (
-    <Link href="/blog/[slug]" as={getPostLink(blog.slug)} passHref>
+    <Link href="/blog/[slug]" as={`/blog/${blog.slug}`} passHref>
       <a className="hover:opacity-75 transition-all">
         {/* thumbnail */}
         <figure className="relative pt-[46.29%] h-0 bg-gray-100">
