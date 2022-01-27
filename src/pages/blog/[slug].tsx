@@ -6,10 +6,15 @@ import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
 import Layout from 'components/templates/Layout'
 import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
+import { HTMLToReact } from 'utils/html-to-react-parser'
 
 type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
+  const blogBodyContent = HTMLToReact({
+    html: blog.content,
+  })
+
   return (
     <>
       <NextSeo title={blog.title} description={blog.metaDescription} noindex={blog.metaRobots} />
@@ -22,11 +27,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
               id="news-content"
               className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
             >
-              <div
-                id="news-content"
-                className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
-                dangerouslySetInnerHTML={{ __html: blog.content }}
-              />
+              {blogBodyContent}
             </div>
           </article>
           <div className="mt-12 tracking-widest text-center">

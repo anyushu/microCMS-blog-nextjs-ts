@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  domains: ['images.microcms-assets.io'],
+  images: {
+    domains: ['images.microcms-assets.io'],
+  },
 }
