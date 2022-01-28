@@ -1,3 +1,6 @@
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.css'
 import parse, { Element, HTMLReactParserOptions } from 'html-react-parser'
 import Image from 'next/image'
 import React from 'react'
@@ -53,5 +56,12 @@ const options: HTMLReactParserOptions = {
 }
 
 export const HTMLToReact = ({ html }: { html: string }) => {
-  return <>{parse(html, options)}</>
+  const $ = cheerio.load(html)
+  $('pre').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
+
+  return <>{parse($.html(), options)}</>
 }
