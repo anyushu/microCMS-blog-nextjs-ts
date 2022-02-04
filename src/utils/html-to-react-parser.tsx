@@ -56,7 +56,7 @@ const options: HTMLReactParserOptions = {
 }
 
 export const HTMLToReact = ({ html }: { html: string }) => {
-  const $ = cheerio.load(html)
+  const $ = cheerio.load(html, null, false)
   $('pre').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text())
     $(elm).html(result.value)
