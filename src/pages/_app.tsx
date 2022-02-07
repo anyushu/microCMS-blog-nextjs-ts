@@ -7,7 +7,7 @@ import { defaultSeo } from 'next-seo.config'
 import { GTM_ID } from 'utils/gtm'
 import 'styles/globals.css'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <DefaultSeo {...defaultSeo} />
@@ -19,3 +19,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default MyApp
