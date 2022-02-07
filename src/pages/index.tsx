@@ -14,28 +14,26 @@ type IndexProps = InferGetStaticPropsType<typeof getStaticProps>
 const Home: NextPage<IndexProps> = ({ blog }) => {
   return (
     <>
-      <>
-        <NextSeo
-          description="フロントエンドエンジニアのブログ。サッカーと映画が好きです。"
-          canonical={process.env.NEXT_PUBLIC_SITE_URL}
-        />
+      <NextSeo
+        description="フロントエンドエンジニアのブログ。サッカーと映画が好きです。"
+        canonical={process.env.NEXT_PUBLIC_SITE_URL}
+      />
 
-        <Layout>
-          <Hero />
-          <Container>
-            <Heading h={2} className="mb-6 tracking-wider">
-              Latest posts
-            </Heading>
-            <Posts blogs={blog.contents} />
+      <Layout>
+        <Hero />
+        <Container>
+          <Heading h={2} className="mb-6 tracking-wider">
+            Latest posts
+          </Heading>
+          <Posts blogs={blog.contents} />
 
-            {blog.contents.length > 12 && (
-              <div className="mt-12 text-center">
-                <Button href="/page/1">Show More</Button>
-              </div>
-            )}
-          </Container>
-        </Layout>
-      </>
+          {blog.contents.length > 12 && (
+            <div className="mt-12 text-center">
+              <Button href="/page/1">Show More</Button>
+            </div>
+          )}
+        </Container>
+      </Layout>
     </>
   )
 }
