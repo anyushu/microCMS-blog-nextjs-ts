@@ -27,6 +27,11 @@ const Footer = () => {
               </a>
             </Link>
           </nav>
+          <nav className="flex justify-center my-6 text-sm">
+            <Link href="/privacy-policy">
+              <a className="hover:text-gray-700">PrivacyPolicy</a>
+            </Link>
+          </nav>
           <p className="text-xs">© 2021 {siteTitle}.</p>
         </div>
       </Container>
