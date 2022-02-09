@@ -1,11 +1,12 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
-import { NextSeo } from 'next-seo'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 import React from 'react'
 import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
 import Layout from 'components/templates/Layout'
 import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
+import { siteTitle } from 'next-seo.config'
 import { HTMLToReact } from 'utils/html-to-react-parser'
 import createOgp from 'utils/server/ogp'
 
@@ -24,7 +25,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
         noindex={blog.metaRobots}
         openGraph={{
           url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
-          title: blog.title,
+          title: blog.title + ' | ' + siteTitle,
           description: blog.metaDescription,
           images: [
             {
@@ -37,6 +38,18 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
           ],
           site_name: process.env.NEXT_PUBLIC_SITE_NAME,
         }}
+      />
+
+      <ArticleJsonLd
+        type="Blog"
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`}
+        title={blog.title + ' | ' + siteTitle}
+        images={[`${process.env.NEXT_PUBLIC_SITE_URL}/ogp/${blog.id}.png`]}
+        datePublished={blog.createdAt}
+        dateModified={blog.updatedAt}
+        authorName={['Anyushu']}
+        publisherName="Anyushu"
+        description={blog.metaDescription}
       />
 
       <Layout>
