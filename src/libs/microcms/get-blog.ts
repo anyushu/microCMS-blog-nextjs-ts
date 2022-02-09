@@ -53,3 +53,18 @@ export const getBlog = (slug: string) => {
     },
   })
 }
+
+/**
+ * 下書きブログ詳細の取得
+ *
+ * @param {string} slug id
+ */
+export const getPreiewBlog = (slug: string | string[], draftKey: string | string[]) => {
+  return microcmsClient.get<blog>({
+    endpoint: END_POINT,
+    contentId: slug as string,
+    queries: {
+      draftKey: draftKey as string,
+    },
+  })
+}
