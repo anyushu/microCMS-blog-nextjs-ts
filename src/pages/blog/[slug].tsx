@@ -1,5 +1,12 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
+import { Twemoji } from 'react-emoji-render'
+import {
+  FacebookShareButton,
+  HatenaShareButton,
+  PocketShareButton,
+  TwitterShareButton,
+} from 'react-share'
 import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
@@ -16,6 +23,9 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
     html: blog.content,
   })
 
+  const blogTitle = blog.title + ' | ' + siteTitle
+  const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`
+
   return (
     <>
       <NextSeo
@@ -23,8 +33,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
         description={blog.metaDescription}
         noindex={blog.metaRobots}
         openGraph={{
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
-          title: blog.title + ' | ' + siteTitle,
+          url: blogUrl,
+          title: blogTitle,
           description: blog.metaDescription,
           images: [
             {
@@ -41,8 +51,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
 
       <ArticleJsonLd
         type="Blog"
-        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`}
-        title={blog.title + ' | ' + siteTitle}
+        url={blogUrl}
+        title={blogTitle}
         images={[`${process.env.NEXT_PUBLIC_SITE_URL}/ogp/${blog.id}.png`]}
         datePublished={blog.createdAt}
         dateModified={blog.updatedAt}
@@ -62,7 +72,30 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
               {blogBodyContent}
             </div>
           </article>
-          <div className="mt-12 tracking-widest text-center">
+
+          {/* SocialShare */}
+          <div className="text-center md:mt-24 mt-16">
+            <p className="flex justify-center items-center mb-6">
+              <Twemoji text="📎" />
+              <span className="tracking-widest text-lg ml-1">Social Share</span>
+            </p>
+            <div className="flex justify-center items-center flex-wrap">
+              <TwitterShareButton url={blogUrl} className="mx-3">
+                <span className="hover:underline">Twitter</span>
+              </TwitterShareButton>
+              <HatenaShareButton url={blogUrl} className="mx-3">
+                <span className="hover:underline">Hatena</span>
+              </HatenaShareButton>
+              <FacebookShareButton title={blogTitle} url={blogUrl} className="mx-3">
+                <span className="hover:underline">Facebook</span>
+              </FacebookShareButton>
+              <PocketShareButton url={blogUrl} className="mx-3">
+                <span className="hover:underline">Pocket</span>
+              </PocketShareButton>
+            </div>
+          </div>
+
+          <div className="md:mt-24 mt-16 tracking-widest text-center">
             <Button href="/">Back Home</Button>
           </div>
         </Container>
