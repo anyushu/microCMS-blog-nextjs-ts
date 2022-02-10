@@ -1,7 +1,5 @@
 import type { GetStaticPropsContext, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import React from 'react'
-import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
 import Layout from 'components/templates/Layout'
@@ -33,9 +31,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
               {blogBodyContent}
             </div>
           </article>
-          <div className="mt-12 tracking-widest text-center">
-            <Button href="/">Back Home</Button>
-          </div>
         </Container>
       </Layout>
     </>

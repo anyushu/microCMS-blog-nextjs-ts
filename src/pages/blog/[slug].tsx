@@ -1,6 +1,5 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
-import React from 'react'
 import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
