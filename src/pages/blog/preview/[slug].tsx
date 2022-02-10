@@ -1,9 +1,9 @@
-import type { GetStaticPropsContext, NextPage } from 'next'
+import type { GetServerSidePropsContext, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/organisms/post/PostHeader'
 import Layout from 'components/templates/Layout'
-import { getAllSlugs, getPreiewBlog } from 'libs/microcms/get-blog'
+import { getPreiewBlog } from 'libs/microcms/get-blog'
 import { blog } from 'types/cms-types'
 import { HTMLToReact } from 'utils/html-to-react-parser'
 
@@ -39,21 +39,11 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
 
 export default BlogPost
 
-export const getStaticPaths = async () => {
-  const allPage = await getAllSlugs()
-  const paths = allPage.contents.map((blog) => ({
-    params: {
-      slug: blog.slug,
-    },
-  }))
-  return { paths, fallback: false }
-}
-
-export const getStaticProps = async ({
+export const getServerSideProps = async ({
   params,
   preview,
   previewData,
-}: GetStaticPropsContext<{ slug: string }, { draftKey: string }>) => {
+}: GetServerSidePropsContext<{ slug: string }, { draftKey: string }>) => {
   if (preview && previewData && params?.slug) {
     const draftKey = previewData.draftKey
     const data = await getPreiewBlog(params.slug, draftKey)
