@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import React from 'react'
 import Container from 'components/atoms/Container'
 import Heading from 'components/atoms/Heading'
-import Posts from 'components/molecules/Posts'
+import Posts from 'components/organisms/Posts'
 import Layout from 'components/templates/Layout'
 import { getBlogList, getAllSlugs } from 'libs/microcms/get-blog'
 

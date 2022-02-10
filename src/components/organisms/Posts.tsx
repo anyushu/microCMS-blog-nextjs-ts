@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import PostCard from 'components/organisms/post/PostCard'
+import PostCard from 'components/molecules/post/PostCard'
 import type { blog } from 'types/cms-types'
 
 type PostsProps = {

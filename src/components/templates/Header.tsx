@@ -1,7 +1,7 @@
 import { Popover, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { Fragment } from 'react'
-import ToggleColorMode from 'components/organisms/ToggleColorMode'
+import ToggleColorMode from 'components/molecules/ToggleColorMode'
 import { siteTitle } from 'next-seo.config'
 
 const headMenus = [
