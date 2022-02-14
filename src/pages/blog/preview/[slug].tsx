@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Container from 'components/atoms/Container'
-import PostHeader from 'components/organisms/post/PostHeader'
+import PostHeader from 'components/molecules/post/PostHeader'
 import Layout from 'components/templates/Layout'
 import { getPreiewBlog } from 'libs/microcms/get-blog'
 import { blog } from 'types/cms-types'

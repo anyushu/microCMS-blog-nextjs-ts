@@ -9,7 +9,7 @@ import {
 } from 'react-share'
 import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
-import PostHeader from 'components/organisms/post/PostHeader'
+import PostHeader from 'components/molecules/post/PostHeader'
 import Layout from 'components/templates/Layout'
 import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
 import { siteTitle } from 'next-seo.config'
