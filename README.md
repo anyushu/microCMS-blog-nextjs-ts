@@ -40,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [lint-staged](https://github.com/okonet/lint-staged#readme)
 - [Prettier](https://prettier.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Storybook](https://anyushu.github.io/microCMS-blog-nextjs-ts/storybook/)
 
 ## Project Structure
 
