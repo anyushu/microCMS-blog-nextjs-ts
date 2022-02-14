@@ -22,7 +22,7 @@ jobs:
       - name: install deps
         run: yarn install
       - name: run build storybook
-        run: build-storybook -o ./dist/storybook
+        run: yarn build-storybook
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
