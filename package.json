@@ -14,7 +14,7 @@
     "prepare": "husky install",
     "microcms-type": "microcms-typescript src/types/schema src/types/cms-types.ts",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o ./dist/storybook"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
