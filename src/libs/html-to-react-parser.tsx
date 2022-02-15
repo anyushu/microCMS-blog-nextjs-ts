@@ -1,7 +1,6 @@
 import 'highlight.js/styles/atom-one-dark.css'
 import { Element, HTMLReactParserOptions } from 'html-react-parser'
 import Image from 'next/image'
-import React from 'react'
 
 export const options: HTMLReactParserOptions = {
   replace: (domNode) => {
