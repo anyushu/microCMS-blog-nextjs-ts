@@ -12,13 +12,6 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Red+Hat+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
           />
-          {process.env.NEXT_PUBLIC_APP_ENV === 'production' && (
-            <script
-              async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2260370577246692"
-              crossOrigin="anonymous"
-            ></script>
-          )}
         </Head>
         <body className="text-black-900 dark:text-white bg-white dark:bg-black-900">
           {GTM_ID && (
