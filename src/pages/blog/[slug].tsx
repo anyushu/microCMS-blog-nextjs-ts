@@ -1,4 +1,8 @@
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
+import parse from 'html-react-parser'
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
+import 'highlight.js/styles/atom-one-dark.css'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { Twemoji } from 'react-emoji-render'
 import {
@@ -11,18 +15,14 @@ import Button from 'components/atoms/Button'
 import Container from 'components/atoms/Container'
 import PostHeader from 'components/molecules/post/PostHeader'
 import Layout from 'components/templates/Layout'
+import { options } from 'libs/html-to-react-parser'
 import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
 import { siteTitle } from 'next-seo.config'
-import { HTMLToReact } from 'utils/html-to-react-parser'
 import createOgp from 'utils/server/ogp'
 
 type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
-  const blogBodyContent = HTMLToReact({
-    html: blog.content,
-  })
-
+const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody }) => {
   const blogTitle = blog.title + ' | ' + siteTitle
   const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`
 
@@ -69,7 +69,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
               id="news-content"
               className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
             >
-              {blogBodyContent}
+              <>{parse(blogBody, options)}</>
             </div>
           </article>
 
@@ -118,10 +118,17 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   const data = await getBlog(params?.slug || '')
+  const $ = cheerio.load(data.contents[0].content)
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
   void createOgp(data.contents[0].title, data.contents[0].id)
   return {
     props: {
       blog: data.contents[0],
+      blogBody: $.html(),
     },
   }
 }
