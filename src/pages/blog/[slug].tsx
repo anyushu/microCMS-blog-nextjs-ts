@@ -118,7 +118,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   const data = await getBlog(params?.slug || '')
-  const $ = cheerio.load(data.contents[0].content)
+  const $ = cheerio.load(data.contents[0].content, null, false)
   $('pre code').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text())
     $(elm).html(result.value)

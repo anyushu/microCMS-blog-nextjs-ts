@@ -48,7 +48,7 @@ export const getServerSideProps = async ({
   if (preview && previewData && params?.slug) {
     const draftKey = previewData.draftKey
     const data = await getPreiewBlog(params.slug, draftKey)
-    const $ = cheerio.load(data.content)
+    const $ = cheerio.load(data.content, null, false)
     $('pre code').each((_, elm) => {
       const result = hljs.highlightAuto($(elm).text())
       $(elm).html(result.value)
