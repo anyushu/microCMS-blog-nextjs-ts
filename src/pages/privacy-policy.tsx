@@ -14,7 +14,7 @@ const PrivacyPolicy: NextPage = () => {
           PrivacyPolicy
         </Heading>
 
-        <div className="prose mx-auto mt-12">
+        <div className="prose mx-auto mt-12 dark:prose-invert">
           <p>
             本プライバシーポリシーは、{process.env.NEXT_PUBLIC_SITE_NAME}（
             {process.env.NEXT_PUBLIC_SITE_URL}）
