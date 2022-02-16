@@ -21,6 +21,25 @@ module.exports = {
         green: colors.emerald,
         purple: colors.violet,
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              '&:hover': {
+                textDecoration: 'none',
+              },
+            },
+            pre: {
+              overflow: 'hidden',
+              padding: '0 !important',
+            },
+            blockquote: {
+              fontSize: '0.85em',
+              letterSpacing: 'normal',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

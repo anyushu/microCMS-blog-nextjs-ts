@@ -6,13 +6,7 @@
   @apply m-0 w-auto h-auto !important;
 }
 
-.prose pre {
-  padding: 0 !important;
-}
-
 .hljs {
-  overflow-y: auto;
-  max-height: 350px;
   letter-spacing: normal;
   line-height: 1.5;
 }
