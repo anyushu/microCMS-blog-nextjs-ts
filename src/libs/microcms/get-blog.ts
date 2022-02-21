@@ -1,6 +1,6 @@
-import type { MicroCMSListResponse, MicroCMSQueries } from 'microcms-js-sdk'
-import { microcmsClient } from 'libs/microcms/api-client'
-import type { blog } from 'types/cms-types'
+import type { MicroCMSQueries } from 'microcms-js-sdk'
+import { microcmsClient } from '@/libs/microcms/api-client'
+import type { blog } from '@/types/cms-types'
 
 export const END_POINT = 'blog'
 
@@ -42,29 +42,13 @@ export const getBlogList = (limit?: number, offset?: number, keyword?: string) =
 
 /**
  * ブログ詳細の取得
- *
- * @param {string} slug id
  */
-export const getBlog = (slug: string) => {
-  return microcmsClient.get<MicroCMSListResponse<blog>>({
-    endpoint: END_POINT,
-    queries: {
-      filters: `slug[equals]${slug}`,
-    },
-  })
-}
-
-/**
- * 下書きブログ詳細の取得
- *
- * @param {string} slug id
- */
-export const getPreiewBlog = (slug: string | string[], draftKey: string | string[]) => {
+export const getBlog = (slug: string, draftKey?: string) => {
   return microcmsClient.get<blog>({
     endpoint: END_POINT,
-    contentId: slug as string,
+    contentId: slug,
     queries: {
-      draftKey: draftKey as string,
+      draftKey: draftKey,
     },
   })
 }

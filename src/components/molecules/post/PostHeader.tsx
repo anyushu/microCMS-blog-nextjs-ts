@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import Heading from 'components/atoms/Heading'
-import { blog } from 'types/cms-types'
-import { formatDate } from 'utils/format-date'
-import { jpParse } from 'utils/japanese-parser'
+import Heading from '@/components/atoms/Heading'
+import { blog } from '@/types/cms-types'
+import { formatDate } from '@/utils/format-date'
+import { jpParse } from '@/utils/japanese-parser'
 
 const PostHeader: FC<{ blog: blog }> = ({ blog }) => {
   return (

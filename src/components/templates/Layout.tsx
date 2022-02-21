@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react'
 import CookieConsent from 'react-cookie-consent'
 import colors from 'tailwindcss/colors'
-import Footer from 'components/templates/Footer'
-import Header from 'components/templates/Header'
+import Footer from '@/components/templates/Footer'
+import Header from '@/components/templates/Header'
 
 type Props = {
   children: ReactNode

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://anyushu.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
-<url><loc>https://anyushu.com/privacy-policy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
-<url><loc>https://anyushu.com/blog/jamstack-nextjs-microcms-blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
-<url><loc>https://anyushu.com/blog/test-syntax-highlight</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
-<url><loc>https://anyushu.com/blog/embed-test</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
-<url><loc>https://anyushu.com/blog/html-test</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-10T05:31:55.248Z</lastmod></url>
+<url><loc>https://anyushu.com</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
+<url><loc>https://anyushu.com/privacy-policy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
+<url><loc>https://anyushu.com/blog/zml8zdg79d0</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
+<url><loc>https://anyushu.com/blog/muu_2e0oq0u1</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
+<url><loc>https://anyushu.com/blog/ro5xv7mx98</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
+<url><loc>https://anyushu.com/blog/6qsfuycz96</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-02-21T09:10:34.080Z</lastmod></url>
 </urlset>

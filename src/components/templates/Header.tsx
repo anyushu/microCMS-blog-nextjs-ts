@@ -1,8 +1,8 @@
 import { Popover, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { Fragment } from 'react'
-import ToggleColorMode from 'components/molecules/ToggleColorMode'
-import { siteTitle } from 'next-seo.config'
+import ToggleColorMode from '@/components/molecules/ToggleColorMode'
+import { siteTitle } from '@/next-seo.config'
 
 const headMenus = [
   { name: 'GitHub', href: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/' },

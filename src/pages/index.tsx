@@ -1,13 +1,13 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import React from 'react'
-import Button from 'components/atoms/Button'
-import Container from 'components/atoms/Container'
-import Heading from 'components/atoms/Heading'
-import Hero from 'components/organisms/Hero'
-import Posts from 'components/organisms/Posts'
-import Layout from 'components/templates/Layout'
-import { getBlogList } from 'libs/microcms/get-blog'
+import Button from '@/components/atoms/Button'
+import Container from '@/components/atoms/Container'
+import Heading from '@/components/atoms/Heading'
+import Hero from '@/components/organisms/Hero'
+import Posts from '@/components/organisms/Posts'
+import Layout from '@/components/templates/Layout'
+import { getBlogList } from '@/libs/microcms/get-blog'
 
 type IndexProps = InferGetStaticPropsType<typeof getStaticProps>
 

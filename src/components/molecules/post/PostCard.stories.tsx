@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import PostCard from 'components/molecules/post/PostCard'
-import { blog } from 'types/cms-types'
+import PostCard from '@/components/molecules/post/PostCard'
+import { blog } from '@/types/cms-types'
 
 export default {
   title: 'Molecules/Post/PostCard',
@@ -23,7 +23,6 @@ const blogData = {
   createdAt: '2022-01-25T03:27:59.162Z',
   metaDescription: 'テキスト系のレンダリング確認',
   metaRobots: false,
-  slug: 'html-test',
   title: 'テキスト系のレンダリング確認',
   content: '',
   thumbnail: '☕',
