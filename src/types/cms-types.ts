@@ -26,17 +26,13 @@ export type blog<T = 'get'> = Structure<
      */
     title: string
     /**
-     * スラッグ
-     */
-    slug: string
-    /**
      * アイキャッチ
      */
     thumbnail?: string
     /**
      * カテゴリー
      */
-    category: ['others']
+    category: [string]
     /**
      * 投稿内容
      */

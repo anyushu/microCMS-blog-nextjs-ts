@@ -24,7 +24,7 @@ type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody }) => {
   const blogTitle = blog.title + ' | ' + siteTitle
-  const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`
+  const blogUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.id}`
 
   return (
     <>
@@ -110,7 +110,7 @@ export const getStaticPaths = async () => {
   const allPage = await getAllSlugs()
   const paths = allPage.contents.map((blog) => ({
     params: {
-      slug: blog.slug,
+      slug: blog.id,
     },
   }))
   return { paths, fallback: false }
@@ -118,16 +118,16 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext<{ slug: string }>) => {
   const data = await getBlog(params?.slug || '')
-  const $ = cheerio.load(data.contents[0].content, null, false)
+  const $ = cheerio.load(data.content, null, false)
   $('pre code').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text())
     $(elm).html(result.value)
     $(elm).addClass('hljs')
   })
-  void createOgp(data.contents[0].title, data.contents[0].id)
+  void createOgp(data.title, data.id)
   return {
     props: {
-      blog: data.contents[0],
+      blog: data,
       blogBody: $.html(),
     },
   }

@@ -23,7 +23,6 @@ const blogData = {
   createdAt: '2022-01-25T03:27:59.162Z',
   metaDescription: 'テキスト系のレンダリング確認',
   metaRobots: false,
-  slug: 'html-test',
   title: 'テキスト系のレンダリング確認',
   content: '',
   thumbnail: '☕',

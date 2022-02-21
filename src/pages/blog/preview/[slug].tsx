@@ -7,7 +7,7 @@ import Container from '@/components/atoms/Container'
 import PostHeader from '@/components/molecules/post/PostHeader'
 import Layout from '@/components/templates/Layout'
 import { options } from '@/libs/html-to-react-parser'
-import { getPreiewBlog } from '@/libs/microcms/get-blog'
+import { getBlog } from '@/libs/microcms/get-blog'
 import { blog } from '@/types/cms-types'
 import 'highlight.js/styles/atom-one-dark.css'
 
@@ -47,7 +47,7 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext<{ slug: string }, { draftKey: string }>) => {
   if (preview && previewData && params?.slug) {
     const draftKey = previewData.draftKey
-    const data = await getPreiewBlog(params.slug, draftKey)
+    const data = await getBlog(params.slug, draftKey)
     const $ = cheerio.load(data.content, null, false)
     $('pre code').each((_, elm) => {
       const result = hljs.highlightAuto($(elm).text())
