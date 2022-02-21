@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const exitPreview = async (_: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const exitPreview = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   res.clearPreviewData()
-  res.end()
-  window.close()
+  res.writeHead(307, { Location: `/blog/${req.query.id}` })
+  res.end('exit preview mode')
 }
 
 export default exitPreview

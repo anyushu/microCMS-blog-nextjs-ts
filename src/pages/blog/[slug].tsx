@@ -42,7 +42,9 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody, isPreview }) => {
 
   return (
     <>
-      {!isPreview && (
+      {isPreview ? (
+        <NextSeo title={blog.title} noindex={true} />
+      ) : (
         <>
           <NextSeo
             title={blog.title}
@@ -83,7 +85,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody, isPreview }) => {
           <article>
             {isPreview && (
               <div className="text-right">
-                <Button href="/api/exit-preview">プレビューを解除</Button>
+                <Button href={`/api/exit-preview?id=${blog.id}`}>プレビューを解除</Button>
               </div>
             )}
             <PostHeader blog={blog} />
