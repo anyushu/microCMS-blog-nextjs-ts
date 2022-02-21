@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Container from 'components/atoms/Container'
-import { siteTitle } from 'next-seo.config'
+import Container from '@/components/atoms/Container'
+import { siteTitle } from '@/next-seo.config'
 
 const Footer = () => {
   return (

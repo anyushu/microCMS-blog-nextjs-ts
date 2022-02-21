@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { FC } from 'react'
 import { Twemoji } from 'react-emoji-render'
-import { blog } from 'types/cms-types'
-import { formatDate } from 'utils/format-date'
+import { blog } from '@/types/cms-types'
+import { formatDate } from '@/utils/format-date'
 
 const PostCard: FC<{ blog: blog }> = ({ blog }) => {
   return (

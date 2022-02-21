@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import PostCard from 'components/molecules/post/PostCard'
-import { blog } from 'types/cms-types'
+import PostCard from '@/components/molecules/post/PostCard'
+import { blog } from '@/types/cms-types'
 
 export default {
   title: 'Molecules/Post/PostCard',

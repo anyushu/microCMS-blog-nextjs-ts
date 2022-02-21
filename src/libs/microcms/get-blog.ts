@@ -1,6 +1,6 @@
 import type { MicroCMSListResponse, MicroCMSQueries } from 'microcms-js-sdk'
-import { microcmsClient } from 'libs/microcms/api-client'
-import type { blog } from 'types/cms-types'
+import { microcmsClient } from '@/libs/microcms/api-client'
+import type { blog } from '@/types/cms-types'
 
 export const END_POINT = 'blog'
 

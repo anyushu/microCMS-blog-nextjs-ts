@@ -11,14 +11,14 @@ import {
   PocketShareButton,
   TwitterShareButton,
 } from 'react-share'
-import Button from 'components/atoms/Button'
-import Container from 'components/atoms/Container'
-import PostHeader from 'components/molecules/post/PostHeader'
-import Layout from 'components/templates/Layout'
-import { options } from 'libs/html-to-react-parser'
-import { getAllSlugs, getBlog } from 'libs/microcms/get-blog'
-import { siteTitle } from 'next-seo.config'
-import createOgp from 'utils/server/ogp'
+import Button from '@/components/atoms/Button'
+import Container from '@/components/atoms/Container'
+import PostHeader from '@/components/molecules/post/PostHeader'
+import Layout from '@/components/templates/Layout'
+import { options } from '@/libs/html-to-react-parser'
+import { getAllSlugs, getBlog } from '@/libs/microcms/get-blog'
+import { siteTitle } from '@/next-seo.config'
+import createOgp from '@/utils/server/ogp'
 
 type BlogPostProps = InferGetStaticPropsType<typeof getStaticProps>
 

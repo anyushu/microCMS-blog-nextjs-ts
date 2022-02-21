@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import Container from 'components/atoms/Container'
-import Heading from 'components/atoms/Heading'
-import Layout from 'components/templates/Layout'
+import Container from '@/components/atoms/Container'
+import Heading from '@/components/atoms/Heading'
+import Layout from '@/components/templates/Layout'
 
 const PrivacyPolicy: NextPage = () => {
   return (

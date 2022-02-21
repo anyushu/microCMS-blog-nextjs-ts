@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getPreiewBlog } from 'libs/microcms/get-blog'
+import { getPreiewBlog } from '@/libs/microcms/get-blog'
 
 const Preview = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!req.query.slug) {
