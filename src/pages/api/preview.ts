@@ -18,7 +18,7 @@ const Preview = async (req: NextApiRequest, res: NextApiResponse) => {
     slug: content.id,
     draftKey: req.query.draftKey,
   })
-  res.writeHead(307, { Location: `/blog/preview/${content.id}` })
+  res.writeHead(307, { Location: `/blog/${content.id}` })
   res.end('Preview mode enabled')
 }
 
