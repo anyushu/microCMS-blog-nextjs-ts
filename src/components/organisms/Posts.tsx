@@ -23,8 +23,8 @@ const Posts: FC<PostsProps> = ({ blogs, pageInfo }) => {
       </div>
 
       {pageInfo && (
-        <div className="container mt-12 max-w-3xl mx-auto">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto mt-12 max-w-3xl">
+          <div className="flex justify-between items-center">
             {pageInfo.offset > 0 && (
               <Link href="/page/[offset]" as={`/page/${pageInfo.offset}`}>
                 <a>{'<'} Prev</a>

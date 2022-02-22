@@ -15,9 +15,8 @@ import {
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import PostHeader from '@/components/molecules/post/PostHeader'
-import Layout from '@/components/templates/Layout'
 import { options } from '@/libs/html-to-react-parser'
-import { getAllSlugs, getBlog } from '@/libs/microcms/get-blog'
+import { getBlog, getBlogList } from '@/libs/microcms/get-blog'
 import { siteTitle } from '@/next-seo.config'
 import { blog } from '@/types/cms-types'
 import createOgp from '@/utils/server/ogp'
@@ -80,51 +79,50 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody, isPreview }) => {
         </>
       )}
 
-      <Layout>
-        <Container>
-          <article>
-            {isPreview && (
-              <div className="text-right">
-                <Button href={`/api/exit-preview?id=${blog.id}`}>プレビューを解除</Button>
-              </div>
-            )}
-            <PostHeader blog={blog} />
-            <div
-              id="news-content"
-              className="w-full max-w-none prose prose-slate md:prose-md lg:prose-lg mt-12 tracking-wider leading-relaxed md:px-24 md:mt-24 dark:prose-invert"
-            >
-              <>{parse(blogBody, options)}</>
+      <Container>
+        <article>
+          {isPreview && (
+            <div className="text-right">
+              <Button href={`/api/exit-preview?id=${blog.id}`}>プレビューを解除</Button>
             </div>
-          </article>
-          {!isPreview && (
-            <>
-              <div className="text-center md:mt-24 mt-16">
-                <p className="flex justify-center items-center mb-6">
-                  <Twemoji text="📎" />
-                  <span className="tracking-widest text-lg ml-1">Social Share</span>
-                </p>
-                <div className="flex justify-center items-center flex-wrap">
-                  <TwitterShareButton url={blogUrl} className="mx-3">
-                    <span className="hover:underline">Twitter</span>
-                  </TwitterShareButton>
-                  <HatenaShareButton url={blogUrl} className="mx-3">
-                    <span className="hover:underline">Hatena</span>
-                  </HatenaShareButton>
-                  <FacebookShareButton title={blogTitle} url={blogUrl} className="mx-3">
-                    <span className="hover:underline">Facebook</span>
-                  </FacebookShareButton>
-                  <PocketShareButton url={blogUrl} className="mx-3">
-                    <span className="hover:underline">Pocket</span>
-                  </PocketShareButton>
-                </div>
-              </div>
-              <div className="md:mt-24 mt-16 tracking-widest text-center">
-                <Button href="/">Back Home</Button>
-              </div>
-            </>
           )}
-        </Container>
-      </Layout>
+          <PostHeader blog={blog} />
+          <div
+            id="news-content"
+            // eslint-disable-next-line tailwindcss/no-custom-classname
+            className="mt-12 w-full max-w-none tracking-wider leading-relaxed prose prose-slate dark:prose-invert md:px-24 md:mt-24 lg:prose-lg md:prose-md"
+          >
+            <>{parse(blogBody, options)}</>
+          </div>
+        </article>
+        {!isPreview && (
+          <>
+            <div className="mt-16 text-center md:mt-24">
+              <p className="flex justify-center items-center mb-6">
+                <Twemoji text="📎" />
+                <span className="ml-1 text-lg tracking-widest">Social Share</span>
+              </p>
+              <div className="flex flex-wrap justify-center items-center">
+                <TwitterShareButton url={blogUrl} className="mx-3">
+                  <span className="hover:underline">Twitter</span>
+                </TwitterShareButton>
+                <HatenaShareButton url={blogUrl} className="mx-3">
+                  <span className="hover:underline">Hatena</span>
+                </HatenaShareButton>
+                <FacebookShareButton title={blogTitle} url={blogUrl} className="mx-3">
+                  <span className="hover:underline">Facebook</span>
+                </FacebookShareButton>
+                <PocketShareButton url={blogUrl} className="mx-3">
+                  <span className="hover:underline">Pocket</span>
+                </PocketShareButton>
+              </div>
+            </div>
+            <div className="mt-16 tracking-widest text-center md:mt-24">
+              <Button href="/">Back Home</Button>
+            </div>
+          </>
+        )}
+      </Container>
     </>
   )
 }
@@ -132,7 +130,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog, blogBody, isPreview }) => {
 export default BlogPost
 
 export const getStaticPaths = async () => {
-  const allPage = await getAllSlugs()
+  const allPage = await getBlogList(9999)
   const paths = allPage.contents.map((blog) => ({
     params: {
       slug: blog.id,

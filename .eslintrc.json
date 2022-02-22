@@ -5,6 +5,7 @@
     "plugin:import/recommended",
     "plugin:import/warnings",
     "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:storybook/recommended"
   ],
   "rules": {

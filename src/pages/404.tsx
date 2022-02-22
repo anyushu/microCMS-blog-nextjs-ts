@@ -1,22 +1,15 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import Link from 'next/link'
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
-import { siteTitle } from '@/next-seo.config'
 
 const Custom404: NextPage = () => {
   return (
     <>
-      <NextSeo description="JAMstack Blog with Notion API x Next.js" />
+      <NextSeo noindex={true} description="JAMstack Blog with Notion API x Next.js" />
 
-      <Container className="py-24 text-center">
-        <h1 className="text-xl tracking-widest">
-          <Link href="/">
-            <a>{siteTitle}</a>
-          </Link>
-        </h1>
-        <h2 className="mt-24 text-9xl tracking-widest text-gray-300">404</h2>
+      <Container className="py-12 text-center">
+        <h2 className="text-9xl tracking-widest text-gray-300">404</h2>
         <p className="mt-12 tracking-widest">
           I am sorry, but the page you requested was not found.
         </p>
