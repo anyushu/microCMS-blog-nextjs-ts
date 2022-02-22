@@ -8,8 +8,8 @@ const Custom404: NextPage = () => {
     <>
       <NextSeo noindex={true} description="JAMstack Blog with Notion API x Next.js" />
 
-      <Container className="text-center">
-        <h2 className="mt-24 text-9xl tracking-widest text-gray-300">404</h2>
+      <Container className="py-12 text-center">
+        <h2 className="text-9xl tracking-widest text-gray-300">404</h2>
         <p className="mt-12 tracking-widest">
           I am sorry, but the page you requested was not found.
         </p>
