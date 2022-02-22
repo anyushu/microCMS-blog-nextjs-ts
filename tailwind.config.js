@@ -30,8 +30,9 @@ module.exports = {
               },
             },
             pre: {
-              overflow: 'hidden',
+              overflow: 'hidden !important',
               padding: '0 !important',
+              borderRadius: '0.375rem !important',
             },
             blockquote: {
               fontSize: '0.85em',

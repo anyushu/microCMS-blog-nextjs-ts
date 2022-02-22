@@ -2,11 +2,10 @@ import type { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'
-import Layout from '@/components/templates/Layout'
 
 const PrivacyPolicy: NextPage = () => {
   return (
-    <Layout>
+    <>
       <NextSeo title="プライバシーポリシー" />
 
       <Container>
@@ -231,7 +230,7 @@ const PrivacyPolicy: NextPage = () => {
           <p>令和4年2月1日 策定</p>
         </div>
       </Container>
-    </Layout>
+    </>
   )
 }
 

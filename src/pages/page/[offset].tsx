@@ -4,7 +4,6 @@ import React from 'react'
 import Container from '@/components/atoms/Container'
 import Heading from '@/components/atoms/Heading'
 import Posts from '@/components/organisms/Posts'
-import Layout from '@/components/templates/Layout'
 import { getBlogList, getAllSlugs } from '@/libs/microcms/get-blog'
 
 const PAGE_LIMIT = 12
@@ -16,22 +15,20 @@ const BlogPost: NextPage<BlogPostProps> = ({ blog }) => {
     <>
       <NextSeo noindex={true} canonical={process.env.NEXT_PUBLIC_SITE_URL} />
 
-      <Layout>
-        <Container>
-          <Heading h={2} className="mb-6 tracking-wider">
-            Page {blog.offset + 1} / {Math.ceil(blog.totalCount / PAGE_LIMIT)}
-          </Heading>
-          <Posts
-            blogs={blog.contents}
-            pageInfo={{
-              offset: blog.offset,
-              limit: blog.limit,
-              totalCount: blog.totalCount,
-              pageLimit: PAGE_LIMIT,
-            }}
-          />
-        </Container>
-      </Layout>
+      <Container>
+        <Heading h={2} className="mb-6 tracking-wider">
+          Page {blog.offset + 1} / {Math.ceil(blog.totalCount / PAGE_LIMIT)}
+        </Heading>
+        <Posts
+          blogs={blog.contents}
+          pageInfo={{
+            offset: blog.offset,
+            limit: blog.limit,
+            totalCount: blog.totalCount,
+            pageLimit: PAGE_LIMIT,
+          }}
+        />
+      </Container>
     </>
   )
 }
