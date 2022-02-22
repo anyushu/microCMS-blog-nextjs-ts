@@ -5,26 +5,7 @@ import type { blog } from '@/types/cms-types'
 export const END_POINT = 'blog'
 
 /**
- * slug取得
- *
- * @returns blog
- */
-export const getAllSlugs = () => {
-  return microcmsClient.getList<blog>({
-    endpoint: END_POINT,
-    queries: {
-      limit: 99999,
-    },
-  })
-}
-
-/**
  * ブログ一覧の取得
- *
- * @param {number} limit 取得投稿数
- * @param {number} offset ページ番号
- * @param {string} keyword 全文検索キーワード
- * @returns blog
  */
 export const getBlogList = (limit?: number, offset?: number, keyword?: string) => {
   const queries: MicroCMSQueries = {
