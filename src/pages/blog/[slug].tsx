@@ -17,7 +17,7 @@ import Container from '@/components/atoms/Container'
 import PostHeader from '@/components/molecules/post/PostHeader'
 import { options } from '@/libs/html-to-react-parser'
 import { getBlog, getBlogList } from '@/libs/microcms/get-blog'
-import { siteTitle } from '@/next-seo.config'
+import { siteTitle } from '@/libs/next-seo.config'
 import { blog } from '@/types/cms-types'
 import createOgp from '@/utils/server/ogp'
 
