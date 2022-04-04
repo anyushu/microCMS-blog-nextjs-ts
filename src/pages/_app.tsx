@@ -3,7 +3,7 @@ import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/app'
 import GoogleTagManager from '@/components/templates/GoogleTagManager'
 import Layout from '@/components/templates/Layout'
-import { defaultSeo } from '@/next-seo.config'
+import { defaultSeo } from '@/libs/next-seo.config'
 import { GTM_ID } from '@/utils/gtm'
 import '@/styles/globals.css'
 
