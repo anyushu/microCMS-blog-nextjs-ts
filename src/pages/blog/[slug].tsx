@@ -15,10 +15,10 @@ import {
 import Button from '@/components/atoms/Button'
 import Container from '@/components/atoms/Container'
 import PostHeader from '@/components/molecules/post/PostHeader'
-import { options } from '@/libs/html-to-react-parser'
 import { getBlog, getBlogList } from '@/libs/microcms/get-blog'
 import { siteTitle } from '@/libs/next-seo.config'
 import { blog } from '@/types/cms-types'
+import { options } from '@/utils/html-to-react-parser'
 import createOgp from '@/utils/server/ogp'
 
 interface BlogPostProps {
