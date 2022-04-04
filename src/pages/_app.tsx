@@ -9,14 +9,13 @@ import '@/styles/globals.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <Layout>
-      <DefaultSeo {...defaultSeo} />
-      {GTM_ID && <GoogleTagManager googleTagManagerId={GTM_ID} />}
-
-      <ThemeProvider attribute="class" defaultTheme="light" storageKey="anyushu-theme">
+    <ThemeProvider attribute="class" defaultTheme="light" storageKey="anyushu-theme">
+      <Layout>
+        <DefaultSeo {...defaultSeo} />
+        {GTM_ID && <GoogleTagManager googleTagManagerId={GTM_ID} />}
         <Component {...pageProps} />
-      </ThemeProvider>
-    </Layout>
+      </Layout>
+    </ThemeProvider>
   )
 }
 
